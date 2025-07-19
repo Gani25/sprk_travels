@@ -9,7 +9,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-link" aria-current="page" href="">Home</a> <a
+				<a class="nav-link" aria-current="page" href="<%=request.getContextPath()	%>">Home</a> <a
 					class="nav-link" href="property">List Property</a>
 			</div>
 		</div>
