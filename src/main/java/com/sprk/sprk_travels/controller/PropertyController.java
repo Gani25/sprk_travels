@@ -15,6 +15,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/property")
 public class PropertyController extends HttpServlet {
@@ -81,7 +82,25 @@ public class PropertyController extends HttpServlet {
 			request.getRequestDispatcher("register.jsp").forward(request, response);
 
 		} else {
-			// BEGIn SAVING DATA
+			// BEGIN SAVING DATA
+			int result = 0;
+			try {
+				result = hotelRepository.saveHotel(hotel);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			HttpSession session = request.getSession();
+			if(result>0) {
+				// SET MSG
+				session.setAttribute("successMsg", "Hotel saved successfully!!");
+			}else {
+				// SET MSG
+				session.setAttribute("errorMsg", "Some bad happen on server");
+			}
+			
+			// REDIRECT TO HOME PAGE
+			response.sendRedirect("index.jsp");
 			
 			
 		}
