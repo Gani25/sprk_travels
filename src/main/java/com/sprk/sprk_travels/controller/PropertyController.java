@@ -100,7 +100,7 @@ public class PropertyController extends HttpServlet {
 			}
 			
 			// REDIRECT TO HOME PAGE
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("home");
 			
 			
 		}

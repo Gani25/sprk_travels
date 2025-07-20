@@ -57,6 +57,12 @@ public class Hotel {
 	public void setPropertyId(int propertyId) {
 		this.propertyId = propertyId;
 	}
+
+	@Override
+	public String toString() {
+		return "Hotel [propertyId=" + propertyId + ", propertyName=" + propertyName + ", propertyPrice=" + propertyPrice
+				+ ", propertyDescription=" + propertyDescription + ", propertyUrl=" + propertyUrl + "]";
+	}
 	
 	
 	

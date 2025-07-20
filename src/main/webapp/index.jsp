@@ -11,20 +11,50 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp" />
-	<div class="container-fluid">
+	<div class="container">
 
 		<!-- DISPLAY MSG -->
 		<c:set var="successMsg"
 			value="<%=session.getAttribute(\"successMsg\")%>" />
 		<c:set var="errorMsg" value="<%=session.getAttribute(\"errorMsg\")%>" />
 		<c:if test="${not empty successMsg}">
-			<div class="alert alert-success text-center w-50 mx-auto mt-5" role="alert">${successMsg }</div>
+			<div class="alert alert-success text-center w-50 mx-auto mt-5"
+				role="alert">${successMsg }</div>
 		</c:if>
 		<c:if test="${not empty errorMsg}">
-			<div class="alert alert-danger text-center w-50 mx-auto mt-5" role="alert">${errorMsg }</div>
+			<div class="alert alert-danger text-center w-50 mx-auto mt-5"
+				role="alert">${errorMsg }</div>
 		</c:if>
-		<c:remove var="errorMsg"/>
-		<c:remove var="successMsg"/>
+		<c:remove var="errorMsg" />
+		<c:remove var="successMsg" />
+		<h3 class="my-5 text-center">All Hotels</h3>
+
+
+		<div
+			class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
+			<!-- FOR LOOP -->
+			<c:set value="<%=request.getAttribute(\"hotels\") %>" var="hotels"></c:set>
+			
+			<c:forEach items="${hotels}" var="hotel">
+				<div class="col my-2">
+				<a href="/hotels/id" class="listing-link">
+					<div class="card">
+						<img
+							src="${hotel.propertyUrl}"
+							class="card-img-top" alt="Listing Images">
+						<div class="card-img-overlay">
+						<h5 class="card-title">${hotel.propertyName}</h5>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">${hotel.propertyName}</h5>
+							<p class="card-text">&#8377;${hotel.propertyPrice}/night</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			</c:forEach>
+		</div>
+
 
 
 
