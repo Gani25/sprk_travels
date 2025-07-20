@@ -2,9 +2,11 @@ package com.sprk.sprk_travels.entity;
 
 public class Hotel {
 	
+	private int propertyId;
+	
 	private String propertyName;
 	
-	private String propertyPrice;
+	private double propertyPrice;
 	
 	private String propertyDescription;
 	
@@ -22,11 +24,13 @@ public class Hotel {
 		this.propertyName = propertyName;
 	}
 
-	public String getPropertyPrice() {
+	
+
+	public double getPropertyPrice() {
 		return propertyPrice;
 	}
 
-	public void setPropertyPrice(String propertyPrice) {
+	public void setPropertyPrice(double propertyPrice) {
 		this.propertyPrice = propertyPrice;
 	}
 
@@ -45,5 +49,15 @@ public class Hotel {
 	public void setPropertyUrl(String propertyUrl) {
 		this.propertyUrl = propertyUrl;
 	}
+
+	public int getPropertyId() {
+		return propertyId;
+	}
+
+	public void setPropertyId(int propertyId) {
+		this.propertyId = propertyId;
+	}
+	
+	
 	
 }
