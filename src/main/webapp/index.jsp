@@ -33,25 +33,28 @@
 		<div
 			class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
 			<!-- FOR LOOP -->
-			<c:set value="<%=request.getAttribute(\"hotels\") %>" var="hotels"></c:set>
-			
-			<c:forEach items="${hotels}" var="hotel">
+			<c:set value="<%=request.getAttribute(\"hotels\")%>" var="hotels"></c:set>
+
+			<c:forEach items="${hotels}" var="theHotel">
 				<div class="col my-2">
-				<a href="/hotels/id" class="listing-link">
-					<div class="card">
-						<img
-							src="${hotel.propertyUrl}"
-							class="card-img-top" alt="Listing Images">
-						<div class="card-img-overlay">
-						<h5 class="card-title">${hotel.propertyName}</h5>
+
+					<c:url var="showLink" value="hotel">
+						<c:param name="hotel_id" value="${theHotel.propertyId}" />
+					</c:url>
+					<a href="${showLink}" class="listing-link">
+						<div class="card">
+							<img src="${theHotel.propertyUrl}" class="card-img-top"
+								alt="Listing Images">
+							<div class="card-img-overlay">
+								<h5 class="card-title">${theHotel.propertyName}</h5>
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">${theHotel.propertyName}</h5>
+								<p class="card-text">&#8377;${theHotel.propertyPrice}/night</p>
+							</div>
 						</div>
-						<div class="card-body">
-							<h5 class="card-title">${hotel.propertyName}</h5>
-							<p class="card-text">&#8377;${hotel.propertyPrice}/night</p>
-						</div>
-					</div>
-				</a>
-			</div>
+					</a>
+				</div>
 			</c:forEach>
 		</div>
 

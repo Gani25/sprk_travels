@@ -76,6 +76,20 @@ public class PropertyController extends HttpServlet {
 			hotel.setPropertyPrice(0);
 		}
 		hotel.setPropertyUrl(propertyUrl);
+		// Check if hotel already exists with same name then display error msg
+		Hotel existingHotel = null;
+		try {
+			existingHotel =  hotelRepository.findByPropertyName(propertyName);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(existingHotel != null)
+		{
+			// already exists
+			request.setAttribute("nameError", "Name already exists try another name");
+			errorCount++;
+		}
 		if (errorCount > 0) {
 			// AGAIN OPEN FORM WITH ALL MSGS
 			request.setAttribute("hotel", hotel);

@@ -10,4 +10,7 @@ create table hotel(
     property_url varchar(1000)
 );
 
+
 desc hotel;
+
+select * from hotel;
