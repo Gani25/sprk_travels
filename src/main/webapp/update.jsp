@@ -14,7 +14,7 @@
 	<div class="container-fluid">
 		<div class="w-75 mx-auto mt-5">
 		<c:set var="hotel" value="<%=request.getAttribute(\"hotel\") %>" />
-			<form method="post" action="hotel/edit">
+			<form method="post" action="edit?hotel_id=${hotel.propertyId}">
 				<div class="row">
 					<div class="mb-4 col">
 						<label for="title" class="form-label">Property Name<span
@@ -65,7 +65,7 @@
 						</c:if>
 				</div>
 				<div class="text-center">
-					<button type="submit" class="btn btn-outline-dark">Save
+					<button type="submit" class="btn btn-outline-dark">Update
 						Property</button>
 				</div>
 			</form>

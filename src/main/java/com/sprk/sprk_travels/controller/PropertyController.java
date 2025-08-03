@@ -67,7 +67,7 @@ public class PropertyController extends HttpServlet {
 		Hotel hotel = new Hotel();
 		hotel.setPropertyName(propertyName);
 		hotel.setPropertyDescription(propertyDescription);
-		if (Pattern.matches("^\\d+$", propertyPrice)) {
+		if (Pattern.matches("^\\d+(\\.\\d+)?$", propertyPrice)) {
 			hotel.setPropertyPrice(Double.parseDouble(propertyPrice));
 
 		} else {

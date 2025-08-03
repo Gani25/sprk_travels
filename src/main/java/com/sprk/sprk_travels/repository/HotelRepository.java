@@ -155,4 +155,28 @@ public class HotelRepository {
 
 	}
 
+	public int updateHotel(Hotel hotel) throws Exception {
+		// STEP 1: Create Connection
+				Connection conn = dataSource.getConnection();
+
+				// STEP 2: Create SQL Statement
+				String sql = "update hotel set property_name = ?, property_price = ?, property_description = ?, property_url = ? where property_id = ?";
+
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setString(1, hotel.getPropertyName());
+				ps.setDouble(2, hotel.getPropertyPrice());
+				ps.setString(3, hotel.getPropertyDescription());
+				ps.setString(4, hotel.getPropertyUrl());
+				ps.setInt(5, hotel.getPropertyId());
+
+				// STEP 3: Execute Statement
+				int result = ps.executeUpdate();
+
+				// STEP 4: Close all
+				closeAll(ps, conn, null);
+
+				return result;
+			
+	}
+
 }
