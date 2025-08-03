@@ -48,9 +48,13 @@
 						<c:param name="hotel_id" value="${hotel.propertyId}"></c:param>
 					</c:url>
 					<a href="${updateLink}" class="btn btn-outline-dark me-3 btn-lg"><i
-						class="uil uil-edit"></i> Update</a> <a href="${deleteLink}"
-						class="btn btn-outline-danger btn-lg"><i
-						class="uil uil-trash-alt"></i> Delete</a>
+						class="uil uil-edit"></i> Update</a> 
+						<form action="${deleteLink}" method="post" class="mt-3">
+							<button class="btn btn-outline-danger btn-lg"><i
+						class="uil uil-trash-alt"></i> Delete</button>
+
+						</form>
+						
 				</div>
 			</div>
 		</div>
